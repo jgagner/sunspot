@@ -22,8 +22,8 @@ namespace :sunspot do
       puts "If you have a large dataset, reindexing can take a very long time, possibly weeks."
       puts "This is not encouraged if you have anywhere near or over 1 million rows."
       puts "Are you sure you want to drop your indexes and completely reindex? (y/n)"
-      answer = STDIN.gets.chomp
-      return false unless answer.match(/^y/)
+      answer = STDIN.gets
+      return false unless answer != nil && answer.chomp.match(/^y/)
     end
 
     # Retry once or gracefully fail for a 5xx error so we don't break reindexing
